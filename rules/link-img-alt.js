@@ -9,16 +9,22 @@ module.exports = function linkImgAlt(){
         len = imgs.length,
         alt = null,
         altVal = "",
-        result = "void"
+        results = {},
+        errors = []
     ;
+
+    results.required = false;
     
     while(len--){
         
         alt = imgs[len].getAttribute('alt');
-        if(alt) { result = (alt != "") } else { result = false; break; };
+        if(alt) { test = (alt != "") } else { test = false;errors.push('Missing alt text when using images as links'); break; };
         
     }
     
-    return result;
+    results.result = test;
+    results.details = errors;
+
+    return results;
     
 }

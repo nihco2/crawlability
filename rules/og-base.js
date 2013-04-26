@@ -2,11 +2,11 @@
     Rule : Use Open Graph Protocol meta tags
 */
 
-module.exports = function ogBase(){
+module.exports = function ogBase() {
 
     var 
         selectors = [
-            "meta[property='og:title']", 
+            "meta[property='og:title']",
             "meta[property='og:description']",
             "meta[property='og:type']",
             "meta[property='og:image']"
@@ -14,14 +14,20 @@ module.exports = function ogBase(){
         attributeName = 'content',
         len = selectors.length,
         currentTarget = null,
-        result = "void"
+        errors = [],
+        results = {},
+        test = "void"
     ;
-    
-    while(len--){
-        currentTarget =  document.querySelector(selectors[len]);
-        if(currentTarget != undefined) {result = (currentTarget[attributeName] != "") }
+
+    results.required = false;
+    while (len--) {
+        currentTarget = document.querySelector(selectors[len]);
+        if (currentTarget != undefined) { test = (currentTarget[attributeName] != "") }
     }
-    
-    return result;
-    
+
+    results.result = test;
+    results.details = errors;
+
+    return results;
+
 }

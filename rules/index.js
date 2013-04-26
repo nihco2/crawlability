@@ -46,5 +46,17 @@ module.exports = {
         context : 'browser', 
         action : require('./og-twitter'),
         value : 5
+    },
+     'keywords' : {
+        // Make use of the "keywords" meta tag
+        context : 'browser', 
+        action : require('./keywords'),
+        value : 5
+    },
+     'microformats' : {
+        // Use Microformats
+        context : 'browser', 
+        action : require('./microformats'),
+        value : 5
     }
 };

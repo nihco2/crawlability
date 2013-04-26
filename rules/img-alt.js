@@ -2,23 +2,29 @@
     Rule : Use alt text in images
 */
 
-module.exports = function imgAlt(){
+module.exports = function imgAlt() {
 
     var 
         imgs = document.querySelectorAll("img"),
         len = imgs.length,
         alt = null,
         altVal = "",
-        result = "void"
+        results = {},
+        errors = []
     ;
+
+    results.required = false;
     
-    while(len--){
-        
+    while (len--) {
         alt = imgs[len].getAttribute('alt');
-        if(alt) { result = (alt != "") } else { result = false; break; };
-        
+        if (alt) { test = (alt != "") } else { test = false; errors.push('Missing img alt'); break; };
+
     }
-    
-    return result;
-    
+
+    results.result = test;
+    results.details = errors;
+    results.required = false;
+
+    return results;
+
 }

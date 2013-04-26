@@ -15,14 +15,21 @@ module.exports = function ogTwitter(){
         attributeName = 'content',
         len = selectors.length,
         currentTarget = null,
-        result = "void"
+        errors = [],
+        results = {},
+        test = "void"
     ;
+
+    results.required = false;
     
     while(len--){
         currentTarget =  document.querySelector(selectors[len]);
-        if(currentTarget) {result = (currentTarget[attributeName] != "") } else { break; }
+        if(currentTarget) {test = (currentTarget[attributeName] != "") } else { break; }
     }
+
+    results.result = test;
+    results.details = errors;
     
-    return result;
+    return results;
     
 }
