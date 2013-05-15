@@ -5,7 +5,7 @@
 module.exports = function keywords() {
 
     var 
-        keywordsMarkup = document.querySelector("meta[name='Keywords']"),
+        keywordsMarkup = document.querySelector("meta[name='Keywords']") || document.querySelector("meta[name='keywords']"),
         results = {},
         errors = []
     ;
@@ -20,7 +20,7 @@ module.exports = function keywords() {
         return results;
 
     } else {
-        results.result = "void";
+        results.result = false;
         errors.push('Missing Keywords meta tag');
         results.details = errors;
     }

@@ -10,7 +10,8 @@ module.exports = function linkImgAlt(){
         alt = null,
         altVal = "",
         results = {},
-        errors = []
+        errors = [],
+        test = true
     ;
 
     results.required = false;

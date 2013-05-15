@@ -58,5 +58,11 @@ module.exports = {
         context : 'browser', 
         action : require('./microformats'),
         value : 5
+    },
+    'microdatas' : {
+        // Use Microdatas
+        context : 'browser', 
+        action : require('./microdatas'),
+        value : 5
     }
 };

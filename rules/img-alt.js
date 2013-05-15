@@ -10,7 +10,8 @@ module.exports = function imgAlt() {
         alt = null,
         altVal = "",
         results = {},
-        errors = []
+        errors = [],
+        test = true
     ;
 
     results.required = false;
